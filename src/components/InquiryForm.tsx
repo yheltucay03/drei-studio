@@ -96,7 +96,7 @@ export default function InquiryForm() {
               required
               value={siteType}
               onChange={e => setSiteType(e.target.value)}
-              style={{ ...inputStyle, cursor: 'pointer' }}
+              style={{ ...inputStyle, cursor: 'pointer', colorScheme: 'dark' }}
               onFocus={e => (e.currentTarget.style.borderColor = '#A855F7')}
               onBlur={e => (e.currentTarget.style.borderColor = 'rgba(109,40,217,0.35)')}
             >
