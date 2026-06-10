@@ -1,26 +1,57 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/* Tailwind v4: custom theme tokens */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-kanit: var(--font-kanit);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Global reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+html, body, #__next {
+  background: #09090F;
+  color: #ffffff;
+  overflow-x: clip;
+}
+
+/* Gradient heading class used throughout the page */
+.hero-heading {
+  background: linear-gradient(180deg, #646973 0%, #BBCCD7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Shimmer animation for accent text */
+@keyframes shimmer {
+  0% { background-position: -300% center; }
+  100% { background-position: 300% center; }
+}
+
+/* Float animation for laptop */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(-1deg); }
+  50% { transform: translateY(-18px) rotate(1deg); }
+}
+
+/* Badge pulse */
+@keyframes badgePulse {
+  0%, 100% { box-shadow: 0 0 6px rgba(109,40,217,0.25); border-color: #7C3AED; }
+  50% { box-shadow: 0 0 18px rgba(168,85,247,0.5); border-color: #A855F7; }
+}
+
+/* Scan line */
+@keyframes scan {
+  0% { top: -2px; }
+  100% { top: 100%; }
+}
+
+/* Border glow for nav CTA */
+@keyframes borderGlow {
+  0%, 100% { box-shadow: 0 0 6px rgba(109,40,217,0.25); border-color: #7C3AED; }
+  50% { box-shadow: 0 0 18px rgba(168,85,247,0.5); border-color: #A855F7; }
 }
