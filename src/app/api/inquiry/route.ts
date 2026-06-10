@@ -12,7 +12,7 @@ export async function POST(req: NextRequest) {
     }
 
     await resend.emails.send({
-      from: 'Drei Studio <noreply@dreiwebstudio.com>',
+      from: 'Drei Studio <onboarding@resend.dev>',
       to: 'yhel.tucay03@gmail.com',
       subject: `New Inquiry from ${name} — ${business}`,
       html: `
