@@ -1,9 +1,11 @@
+import Nav from '@/components/Nav';
+import HeroSection from '@/components/HeroSection';
+
 export default function Home() {
   return (
     <main style={{ overflowX: 'clip' }}>
-      <p style={{ color: '#A855F7', padding: '40px', fontFamily: 'var(--font-kanit)' }}>
-        Drei Studio — building...
-      </p>
+      <Nav />
+      <HeroSection />
     </main>
   );
 }
