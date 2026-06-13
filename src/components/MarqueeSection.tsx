@@ -54,7 +54,7 @@ export default function MarqueeSection() {
       style={{ background: '#09090F' }}
     >
       <p className="text-center text-xs font-bold uppercase tracking-[0.15em] mb-7" style={{ color: '#7C3AED' }}>
-        Work Samples — Sites We&apos;ve Built
+        The Standard We Build To
       </p>
 
       {/* Row 1 — moves right */}

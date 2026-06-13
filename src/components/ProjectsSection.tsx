@@ -29,18 +29,6 @@ const PROJECTS = [
       right: '/portfolio/housellect-3.png',
     },
   },
-  {
-    num: '03',
-    category: 'Coming Soon',
-    name: 'Your Project Here',
-    url: '#inquiry',
-    accentColor: '#059669',
-    images: {
-      topLeft: null,
-      bottomLeft: null,
-      right: null,
-    },
-  },
 ];
 
 const TOTAL = PROJECTS.length;
@@ -54,8 +42,6 @@ function ProjectCard({ project, index }: { project: typeof PROJECTS[0]; index: n
 
   const targetScale = 1 - (TOTAL - 1 - index) * 0.03;
   const scale = useTransform(scrollYProgress, [0, 1], [1, targetScale]);
-
-  const isPlaceholder = project.images.right === null;
 
   return (
     <div className="h-[85vh] relative" ref={cardRef}>
@@ -93,15 +79,8 @@ function ProjectCard({ project, index }: { project: typeof PROJECTS[0]; index: n
             </p>
           </div>
           <LiveProjectButton
-            label={isPlaceholder ? 'Inquire ↗' : 'View Site ↗'}
-            onClick={() => {
-              if (isPlaceholder) {
-                document.getElementById('inquiry')?.scrollIntoView({ behavior: 'smooth' });
-              } else {
-                window.open(project.url, '_blank');
-              }
-            }}
-            style={isPlaceholder ? { borderColor: 'rgba(5,150,105,0.4)', color: 'rgba(5,150,105,0.7)' } : undefined}
+            label="View Site ↗"
+            onClick={() => window.open(project.url, '_blank')}
           />
         </div>
 
@@ -109,47 +88,35 @@ function ProjectCard({ project, index }: { project: typeof PROJECTS[0]; index: n
         <div className="grid gap-3" style={{ gridTemplateColumns: '40% 60%' }}>
           <div className="flex flex-col gap-3">
             <div
-              className="rounded-[24px] sm:rounded-[32px] md:rounded-[40px] overflow-hidden flex items-center justify-center"
+              className="rounded-[24px] sm:rounded-[32px] md:rounded-[40px] overflow-hidden"
               style={{
                 height: 'clamp(90px, 14vw, 200px)',
                 background: 'linear-gradient(135deg, #1A0E2E, #2D1B69)',
                 border: '1px solid rgba(109,40,217,0.2)',
-                fontSize: '0.65rem', color: '#7C3AED', textTransform: 'uppercase', letterSpacing: '0.08em',
               }}
             >
-              {project.images.topLeft
-                ? <img src={project.images.topLeft} alt="" className="w-full h-full object-cover" />
-                : <span style={{ opacity: 0.4 }}>Slot</span>
-              }
+              <img src={project.images.topLeft!} alt="" className="w-full h-full object-cover" />
             </div>
             <div
-              className="rounded-[24px] sm:rounded-[32px] md:rounded-[40px] overflow-hidden flex items-center justify-center"
+              className="rounded-[24px] sm:rounded-[32px] md:rounded-[40px] overflow-hidden"
               style={{
                 height: 'clamp(110px, 18vw, 260px)',
                 background: 'linear-gradient(135deg, #1A0E2E, #2D1B69)',
                 border: '1px solid rgba(109,40,217,0.2)',
-                fontSize: '0.65rem', color: '#7C3AED', textTransform: 'uppercase', letterSpacing: '0.08em',
               }}
             >
-              {project.images.bottomLeft
-                ? <img src={project.images.bottomLeft} alt="" className="w-full h-full object-cover" />
-                : <span style={{ opacity: 0.4 }}>Slot</span>
-              }
+              <img src={project.images.bottomLeft!} alt="" className="w-full h-full object-cover" />
             </div>
           </div>
           <div
-            className="rounded-[24px] sm:rounded-[32px] md:rounded-[40px] overflow-hidden flex items-center justify-center"
+            className="rounded-[24px] sm:rounded-[32px] md:rounded-[40px] overflow-hidden"
             style={{
               minHeight: 'clamp(200px, 32vw, 470px)',
               background: 'linear-gradient(135deg, #1A0E2E, #2D1B69)',
               border: '1px solid rgba(109,40,217,0.2)',
-              fontSize: '0.65rem', color: '#7C3AED', textTransform: 'uppercase', letterSpacing: '0.08em',
             }}
           >
-            {project.images.right
-              ? <img src={project.images.right} alt="" className="w-full h-full object-cover" />
-              : <span style={{ opacity: 0.4 }}>Be the first client</span>
-            }
+            <img src={project.images.right!} alt="" className="w-full h-full object-cover" />
           </div>
         </div>
       </motion.div>
